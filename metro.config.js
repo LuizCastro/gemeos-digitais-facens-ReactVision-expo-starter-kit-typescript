@@ -2,8 +2,14 @@ const { getDefaultConfig } = require('expo/metro-config');
 
 const config = getDefaultConfig(__dirname);
 
-// Add glb/gltf 3D model support
-config.resolver.assetExts.push('glb', 'gltf');
+config.resolver.assetExts = [
+    ...config.resolver.assetExts,
+    "obj",
+    "mtl",
+    "gltf",
+    'glb',
+    'bin'
+]
 
 module.exports = config;
 
