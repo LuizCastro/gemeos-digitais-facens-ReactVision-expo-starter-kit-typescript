@@ -6,7 +6,9 @@ import CenaPlano from "../src/scenes/CenaPlano";
 import CenaInterativa from "../src/scenes/CenaInterativa";
 import CenaPlanoInterativa from "../src/scenes/CenaPlanoInterativa";
 import CenaCatalogoAR from "../src/scenes/CenaCatalogoAR";
-import CenaCarroNaCapa from "../src/scenes/CenaCarroNaCapa";
+import CenaNaCapa from "../src/scenes/CenaNaCapa";
+import ConfiguracaoCarroNaCapa from "../src/screens/ConfiguracaoCarroNaCapa";
+import { CAPAS_PADRAO, MODELOS_PADRAO, CapaAR, ModeloAR } from "../src/scenes/opcoesAR";
 
 type TelaAR = ''
   | "imagem"
@@ -22,6 +24,9 @@ type ObjetoCatalogo = "cubo" | "esfera" | "placa";
 export default function App() {
   const [telaAtual, setTelaAtual] = useState<TelaAR>(null);
   const [objetoSelecionado, setObjetoSelecionado] = useState<ObjetoCatalogo>("cubo");
+  const [configurandoCarroNaCapa, setConfigurandoCarroNaCapa] = useState(false);
+  const [capaSelecionada, setCapaSelecionada] = useState<CapaAR>(CAPAS_PADRAO[0]);
+  const [modeloSelecionado, setModeloSelecionado] = useState<ModeloAR>(MODELOS_PADRAO[0]);
 
   const cenaSelecionada = useMemo(() => {
     if (telaAtual === "imagem") { return CenaImagem; }
@@ -29,9 +34,23 @@ export default function App() {
     if (telaAtual === "interativo") { return CenaInterativa; }
     if (telaAtual === "planoInterativo") { return CenaPlanoInterativa; }
     if (telaAtual === "catalogo") { return CenaCatalogoAR; }
-    if (telaAtual === "carroNaCapa") { return CenaCarroNaCapa; }
+    if (telaAtual === "carroNaCapa") { return CenaNaCapa; }
     return null;
   }, [telaAtual]);
+
+  if (configurandoCarroNaCapa) {
+    return (
+      <ConfiguracaoCarroNaCapa
+        onVoltar={() => setConfigurandoCarroNaCapa(false)}
+        onIniciar={(capa, modelo) => {
+          setCapaSelecionada(capa);
+          setModeloSelecionado(modelo);
+          setConfigurandoCarroNaCapa(false);
+          setTelaAtual("carroNaCapa");
+        }}
+      />
+    );
+  }
 
   if (cenaSelecionada) {
     return (
@@ -39,7 +58,7 @@ export default function App() {
         <ViroARSceneNavigator
           autofocus={true}
           initialScene={{ scene: cenaSelecionada as any }}
-          viroAppProps={{ objetoSelecionado }}
+          viroAppProps={{ objetoSelecionado, capaSelecionada, modeloSelecionado }}
           style={styles.arContainer}
         />
 
@@ -135,11 +154,11 @@ export default function App() {
  
       <Pressable
         style={styles.button}
-        onPress={() => setTelaAtual("carroNaCapa")}
+        onPress={() => setConfigurandoCarroNaCapa(true)}
       >
-        <Text style={styles.buttonTitle}>6. Porsche na capa do livro</Text>
+        <Text style={styles.buttonTitle}>6. Objeto na capa do livro</Text>
         <Text style={styles.buttonDescription}>
-          Reconhece a capa cadastrada e renderiza um carro 3D sobre ela.
+          Escolha a capa e o modelo 3D (ou importe os seus) e renderize sobre a capa reconhecida.
         </Text>
       </Pressable>
  

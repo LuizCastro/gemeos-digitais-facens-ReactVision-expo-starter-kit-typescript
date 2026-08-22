@@ -56,7 +56,8 @@
           "rvApiKey": "Add your API key here",
           "rvProjectId": "Add your project ID here"
         }
-      ]
+      ],
+      "expo-status-bar"
     ],
     "experiments": {
       "typedRoutes": true,
