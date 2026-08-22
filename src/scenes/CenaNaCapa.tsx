@@ -43,11 +43,13 @@ export default function CenaNaCapa(props: PropsCenaNaCapa) {
     }, [capa]);
 
     useEffect(() => {
+        console.log("imagemEncontrada mudou para:", imagemEncontrada);
         if (!imagemEncontrada) {
             setProntoParaExibir(false);
             return;
         }
         const temporizador = setTimeout(() => {
+            console.log("Liberando exibição do objeto (prontoParaExibir = true).");
             setProntoParaExibir(true);
         }, 400);
         return () => clearTimeout(temporizador);
