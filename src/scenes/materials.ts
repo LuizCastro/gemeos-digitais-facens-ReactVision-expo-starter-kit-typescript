@@ -2,7 +2,7 @@ import { ViroMaterials } from "@reactvision/react-viro";
 
 let materiaisCriados = false;
 
-export function criarMateiriais() {
+export function criarMateriais() {
   if (materiaisCriados) {
     return;
   }

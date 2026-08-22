@@ -58,5 +58,18 @@ export default function CenaPlano() {
                     dragType="FixedToPlane"
                     onDrag={() => { }}
                 />
- 
- 
+                <ViroText
+                    text="Objeto na superfície"
+                    position={[0, 0.28, 0]}
+                    scale={[0.15, 0.15, 0.15]}
+                    style={{
+                        fontSize: 18,
+                        color: "#ffffff",
+                        textAlign: "center"
+                    }}
+                    transformBehaviors={["billboard"]}
+                />
+            </ViroARPlaneSelector>
+        </ViroARScene>
+    );
+}
