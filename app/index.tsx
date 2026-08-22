@@ -160,3 +160,32 @@ function BotaoObjeto({  titulo,   ativo,  onPress }:
     </Pressable>
   );
 }
+
+const styles = StyleSheet.create({
+  arContainer: {
+    flex: 1
+  },
+  overlay: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    padding: 16
+  },
+  voltarButton: {
+    backgroundColor: "rgba(15, 23, 42, 0.85)",
+    paddingVertical: 10,
+    paddingHorizontal: 16,
+    borderRadius: 20,
+    alignSelf: "flex-start"
+  },
+  voltarButtonText: {
+    color: "#ffffff",
+    fontWeight: "bold"
+  },
+  catalogoOverlay: {
+    marginTop: 12,
+    backgroundColor: "rgba(15, 23, 42, 0.85)",
+    padding: 12,
+    borderRadius: 16
+  },
