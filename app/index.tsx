@@ -189,3 +189,72 @@ const styles = StyleSheet.create({
     padding: 12,
     borderRadius: 16
   },
+  catalogoTitulo: {
+    color: "#ffffff",
+    fontWeight: "bold",
+    marginBottom: 8
+  },
+  catalogoBotoes: {
+    flexDirection: "row",
+    gap: 8
+  },
+  botaoObjeto: {
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    borderRadius: 14,
+    borderWidth: 1
+  },
+  botaoObjetoAtivo: {
+    backgroundColor: "#2563EB",
+    borderColor: "#60A5FA"
+  },
+  botaoObjetoInativo: {
+    backgroundColor: "rgba(30, 41, 59, 0.9)",
+    borderColor: "#475569"
+  },
+  botaoObjetoTexto: {
+    fontWeight: "bold"
+  },
+  botaoObjetoTextoAtivo: {
+    color: "#ffffff"
+  },
+  botaoObjetoTextoInativo: {
+    color: "#CBD5E1"
+  },
+  container: {
+    flex: 1,
+    backgroundColor: "#0F172A",
+    justifyContent: "center",
+    padding: 24
+  },
+  title: {
+    color: "#ffffff",
+    fontSize: 26,
+    fontWeight: "bold",
+    marginBottom: 12
+  },
+  subtitle: {
+    color: "#CBD5E1",
+    fontSize: 16,
+    marginBottom: 24
+  },
+  button: {
+    backgroundColor: "#1E293B",
+    padding: 16,
+    borderRadius: 16,
+    marginBottom: 12,
+    borderWidth: 1,
+    borderColor: "#334155"
+  },
+  buttonTitle: {
+    color: "#ffffff",
+    fontSize: 15,
+    fontWeight: "bold",
+    marginBottom: 6
+  },
+  buttonDescription: {
+    color: "#CBD5E1",
+    fontSize: 13,
+    lineHeight: 18
+  }
+});
