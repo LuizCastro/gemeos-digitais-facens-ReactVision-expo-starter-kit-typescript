@@ -8,7 +8,7 @@ import CenaPlanoInterativa from "../src/scenes/CenaPlanoInterativa";
 import CenaCatalogoAR from "../src/scenes/CenaCatalogoAR";
 import CenaCarroNaCapa from "../src/scenes/CenaCarroNaCapa";
 
-type TelaAR =
+type TelaAR = ''
   | "imagem"
   | "plano"
   | "interativo"
